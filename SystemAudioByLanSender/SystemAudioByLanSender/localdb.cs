@@ -1,7 +1,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
-
+//Օրինակը metanit
 namespace ConsoleApp30
 {
     public class User
@@ -61,8 +61,8 @@ namespace ConsoleApp30
                 {
                     user.Name = "Bob";
                     user.Age = 44;
-                    //обновляем объект
-                    //db.Users.Update(user);
+              
+                    db.Users.Update(user);
                     db.SaveChanges();
                 }
         
