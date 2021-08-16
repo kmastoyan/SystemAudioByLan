@@ -2,41 +2,26 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Net;
+using System.Text.RegularExpressions;
+using System.Windows.Controls;
 using System.Diagnostics;
 using System.Net.Sockets;
 using System.IO;
+using System.Text;
+using System.Windows.Input;
 
 namespace SystemAudioByLanSender
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        public string ipAddress = "127.0.0.1";
+        public string port = "8000";
+
+
         public MainWindow()
         {
-
             InitializeComponent();
             GetIpAddr();
-
-          // OpenSocket();
-
-        }
-
-        public void OpenSocket()
-        {
-          //  var host = Dns.GetHostEntry(Dns.GetHostName());
-          //  IPAddress ip = new IPAddress();
-           // ip=host.AddressList
-            //ip.setAddressFamily = AddressFamily.InterNetwork;
-        //    TcpListener tl = new TcpListener(ip,65000);
-        //    tl.Start();
-            
-         //   Socket sc= tl.AcceptSocket();
-           // socketConStatus.Content="Litening"
-
-
-       //     sc.Close(); 
 
         }
 
@@ -46,7 +31,7 @@ namespace SystemAudioByLanSender
             var host = Dns.GetHostEntry(Dns.GetHostName());
             foreach (var ip in host.AddressList)
             {
-       
+
                 if (ip.AddressFamily == AddressFamily.InterNetwork)
                 {
                     ips.Add(ip.ToString());
@@ -56,21 +41,50 @@ namespace SystemAudioByLanSender
             throw new Exception("No network adapters with an IPv4 address in the system!");
         }
 
-
-
-    
-
         private void GetIpAddr()
         {
-            ipsListBox.ItemsSource = GetLocalIPAddress();
-       
+            List<string> availableIps = GetLocalIPAddress();
+
+            ipsListBox.ItemsSource = availableIps;
+            comboBox1.ItemsSource = availableIps;
+            //   if()
+            comboBox1.SelectedIndex = 0;
         }
-
-
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
-            System.Windows.Application.Current.Shutdown();
+            Application.Current.Shutdown();
+        }
+
+        private void ComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+
+            ipAddress = comboBox1.SelectedItem.ToString();
+            ipLabel.Content = "Local Ip addresses of this computer: " + ipAddress;
+            tbSettingText.Text = ipAddress;
+        }
+        private void textChangedEventHandler(object sender, TextChangedEventArgs args)
+        {
+            // Omitted Code: Insert code that does something whenever
+            // the text changes...
+        }
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            tbSettingText.Text = regex.IsMatch(e.Text).ToString();
+            if (!regex.IsMatch(e.Text))
+            {
+                if (int.Parse(e.Text) > 0 && int.Parse(e.Text) <= 65535)
+                {
+                    e.Handled = true;
+                }
+                else { e.Handled = false; }
+            }
+            else
+            {
+                e.Handled = true;
+            };
+
         }
     }
 }

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemAudioByLanSender", "SystemAudioByLanSender\SystemAudioByLanSender.csproj", "{5070C21F-E434-4364-9AB5-02A6414520F9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemAudioByLanReceiver", "SystemAudioByLanReceiver\SystemAudioByLanReceiver.csproj", "{AD586746-5867-4E3D-950A-7C7F390262F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5070C21F-E434-4364-9AB5-02A6414520F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5070C21F-E434-4364-9AB5-02A6414520F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5070C21F-E434-4364-9AB5-02A6414520F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5070C21F-E434-4364-9AB5-02A6414520F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD586746-5867-4E3D-950A-7C7F390262F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD586746-5867-4E3D-950A-7C7F390262F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD586746-5867-4E3D-950A-7C7F390262F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD586746-5867-4E3D-950A-7C7F390262F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {C5AD39A3-FC33-43CC-A0E9-51003711B08E}
+		SolutionGuid = {8E2989B3-97E0-4A92-AD35-23DE6F4016C1}
 	EndGlobalSection
 EndGlobal

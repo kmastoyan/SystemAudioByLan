@@ -1,13 +1,4 @@
 # SystemAudioByLan
-Transmit system audio by LAN
+Transmit system audio by LAN to your another PC or Android Phone
 
 
-
-
-
-    public static void printDebugConsole(string a)
-        {
-            Trace.Indent();
-            Trace.WriteLine(a);
-            Trace.Unindent();
-        }

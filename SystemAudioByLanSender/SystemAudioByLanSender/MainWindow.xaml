@@ -4,10 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SystemAudioByLanSender"
-        mc:Ignorable="d"
-        Title="Audio by LAN Sender" Height="450" Width="800">
+        Title="Audio by LAN Sender" Height="450" Width="800" WindowState="Maximized">
     <Grid>
-        <Menu Height="25" VerticalAlignment="Top">
+        <Menu Height="20" VerticalAlignment="Top">
             <MenuItem Header="File">
                 <MenuItem Header="Settings" ></MenuItem>
                 <MenuItem Header="Exit" Click="Exit_Click"></MenuItem>
@@ -18,9 +17,9 @@
         </Menu>
 
 
-        <Label Content="Local Ip addresses of this computer:"   Margin="10,30,590,378"/>
-       
-        <ListBox Margin="22,61,590,286" Name="ipsListBox" >
+        <Label Content="Local Ip addresses of this computer:" Height="100" Name="ipLabel"  FontSize="22" Background="Black" Foreground="White" Margin="10,53,-10,341"/>
+        <TextBox Margin="601,158,35,240" Name="portBox" PreviewTextInput="NumberValidationTextBox" TextChanged="textChangedEventHandler"></TextBox>
+        <ListBox Height="100" Width="200" Name="ipsListBox" Margin="529,286,71,48"  >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -29,8 +28,12 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        
-        <Label Content="" Name="socketConStatus" HorizontalAlignment="Left" Margin="22,169,0,0" VerticalAlignment="Top" Width="188"/>
+        <TextBox Name="tbSettingText" Height="200" Width="400" Margin="45,153,355,81" >
+            
+        </TextBox>
+        <ComboBox Height="35" Width="133" Name="comboBox1" SelectionChanged="ComboBox_SelectionChanged" Margin="463,158,204,241">
+
+        </ComboBox>
 
     </Grid>
 </Window>
